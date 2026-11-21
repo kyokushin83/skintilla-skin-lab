@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480" fill="none">
+ <rect width="560" height="480" fill="#e9f1ed"/>
+ <circle cx="338" cy="192" r="122" fill="#f9fbf7"/>
+ <path d="M0 318C100 270 166 365 270 316C390 260 430 330 560 279V480H0Z" fill="#c5ded2"/>
+ <path d="M0 368C120 309 180 419 310 355C405 309 492 373 560 339V480H0Z" fill="#a3c9bb"/>
+ <path d="M260 409C254 359 217 338 232 299C245 265 218 235 238 202C257 169 270 145 255 105C301 123 318 151 294 194C274 231 303 260 288 296C275 334 300 375 281 412" fill="#2a6d59"/>
+ <path d="M266 410C222 389 175 370 188 329C197 303 174 284 162 264C204 263 235 293 229 321C225 352 257 376 266 410" fill="#5c9377"/>
+ <path d="M282 412C310 373 347 367 334 331C320 296 354 274 370 250C379 290 394 312 366 346C346 377 319 409 282 419" fill="#44836c"/>
+ <path d="M273 419C271 348 266 290 274 181M262 390L210 328M281 405L354 321" stroke="#d2e5cc" stroke-width="3" stroke-linecap="round"/>
+ <path d="M38 57H112M38 66H89" stroke="#71998b" stroke-width="2"/>
+ <text x="38" y="106" fill="#416a5b" font-family="Georgia,serif" font-size="28" letter-spacing="3">GIJANG</text>
+ <text x="40" y="129" fill="#5c7f71" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">BUSAN, KOREA</text>
+ <path d="M394 410C420 400 446 420 479 406M382 425C415 415 440 435 493 419" stroke="#f0f7ed" stroke-width="2" stroke-linecap="round"/>
+</svg>
