@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <title>제품 편집 · SKINTILLA Skin Lab</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css?v=2">
   <script defer src="products.js"></script>
-  <script defer src="skin.js"></script>
-  <script defer src="admin.js"></script>
+  <script defer src="skin.js?v=2"></script>
+  <script defer src="admin.js?v=2"></script>
 </head>
 <body>
-  <header class="header wrap"><a class="brand" href="./"><b>SKINTILLA</b><span>Skin Lab</span></a><a href="./">테스트 화면</a></header>
+  <div class="site-header"><header class="header wrap"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">✳</span><span><b>SKINTILLA</b><small>SKIN LAB</small></span></a><a class="button button-header" href="./">테스트 화면</a></header></div>
   <main class="wrap section admin">
     <h1>제품 편집</h1>
     <p>제품명을 입력하고 연결할 피부 고민과 제형을 선택하세요. 변경사항은 이 페이지의 편집 목록에 반영됩니다. 모든 방문자에게 표시하려면 카탈로그 파일을 내려받아 GitHub에서 교체하세요.</p>
@@ -22,8 +23,8 @@
       <fieldset id="goals"><legend>추천할 피부 고민</legend></fieldset>
       <label class="check"><input id="published" type="checkbox"> 출시 제품으로 표시</label>
       <div class="actions">
-        <button type="submit" class="button primary">목록에 저장</button>
-        <button type="button" class="button outline" id="cancel" hidden>편집 취소</button>
+        <button type="submit" class="button button-dark">목록에 저장</button>
+        <button type="button" class="button button-outline" id="cancel" hidden>편집 취소</button>
       </div>
     </form>
     <p role="status" id="admin-status" class="small"></p>
@@ -31,7 +32,7 @@
       <h2 id="catalog-title">제품 목록</h2>
       <p id="empty">아직 등록된 제품이 없어요.</p>
       <ul class="admin-list" id="products"></ul>
-      <button type="button" class="button outline" id="export">products.js 내려받기</button>
+      <button type="button" class="button button-outline" id="export">products.js 내려받기</button>
     </section>
   </main>
 </body>

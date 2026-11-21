@@ -33,7 +33,7 @@ function render() {
     title.textContent = item.name + " · " + SkinLab.productTypes[item.type] + (item.published ? " · 출시" : " · 초안");
     const controls = document.createElement("div");
     const edit = document.createElement("button");
-    edit.className = "button plain";
+    edit.className = "button button-text";
     edit.textContent = "편집";
     edit.setAttribute("aria-label",item.name+" 편집");
     edit.onclick = () => {
@@ -48,7 +48,7 @@ function render() {
       $("name").focus();
     };
     const remove = document.createElement("button");
-    remove.className = "button plain";
+    remove.className = "button button-text";
     remove.textContent = "삭제";
     remove.setAttribute("aria-label",item.name+" 삭제");
     remove.onclick = () => {

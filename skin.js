@@ -2,10 +2,10 @@
 
 const SkinLab = (() => {
   const goals = {
-    hydration: {label:"보습", ingredient:"글리세린 · 히알루론산", help:"세럼이나 로션에서 수분감을 더하는 성분으로 살펴보세요.", marine:"기장 미역 유래 추출물", form:"보습 세럼"},
-    soothing: {label:"진정", ingredient:"판테놀", help:"피부가 예민하게 느껴질 때는 향료가 없는 단순한 보습 제형부터 살펴보세요.", marine:"기장 다시마 유래 추출물", form:"무향료 보습 로션"},
-    barrier: {label:"장벽 케어", ingredient:"세라마이드", help:"건조로 거칠게 느껴지는 부위에 쓰기 좋은 보습 크림을 살펴보세요.", marine:"기장 다시마 유래 추출물", form:"세라마이드 크림"},
-    oil: {label:"가벼운 보습", ingredient:"글리세린", help:"번들거림이 신경 쓰이는 부위에는 가벼운 로션이나 젤 타입을 얇게 발라 보세요.", marine:"기장 미역 유래 추출물", form:"가벼운 젤 로션"},
+    hydration: {label:"보습", ingredient:"글리세린 · 히알루론산", help:"수분감을 더하고 싶을 때 보습제 전성분에서 찾아보세요.", form:"보습 세럼 또는 로션", summary:"세안 후에는 보습제를 먼저 챙기고, 수분감이 더 필요할 때 아래 제형을 살펴보세요."},
+    soothing: {label:"진정", ingredient:"판테놀", help:"피부가 예민하게 느껴질 때는 향료가 없는 단순한 보습 제형부터 살펴보세요.", form:"무향료 보습 로션", summary:"단계가 적은 루틴부터 시작해 보세요. 새 제품은 한 번에 하나씩 추가하면 사용감을 비교하기 쉬워요."},
+    barrier: {label:"장벽 케어", ingredient:"세라마이드", help:"건조로 거칠게 느껴지는 부위에 쓰기 좋은 보습 크림을 살펴보세요.", form:"세라마이드 크림", summary:"세안 뒤 건조하거나 거친 부위에 보습제를 챙겨 바르는 것부터 시작해 보세요."},
+    oil: {label:"가벼운 보습", ingredient:"글리세린", help:"번들거림이 신경 쓰이는 부위에는 가벼운 로션이나 젤 타입을 얇게 발라 보세요.", form:"가벼운 젤 로션", summary:"번들거리는 부위에는 얇게, 당기는 부위에는 조금 더 바르며 양을 조절해 보세요."},
   };
   const questions = [
     ["tight","세안 후 피부가 당기는 편인가요?"],
@@ -13,7 +13,12 @@ const SkinLab = (() => {
     ["sting","새 화장품 사용 후 따갑게 느낀 적이 있나요?"],
     ["flush","피부에 붉은 기가 쉽게 올라오는 편인가요?"],
     ["rough","건조해서 각질이나 거친 부분이 신경 쓰이나요?"],
-    ["priority","지금 가장 먼저 관리하고 싶은 고민은 무엇인가요?",Object.entries(goals).map(([key, item])=>[key,item.label])],
+    ["priority","지금 가장 먼저 관리하고 싶은 고민은 무엇인가요?",[
+      ["hydration","세안 후 당김과 수분 부족"],
+      ["soothing","쉽게 붉어지거나 예민해지는 느낌"],
+      ["barrier","건조한 각질과 거친 피부결"],
+      ["oil","오후에 생기는 번들거림"],
+    ]],
   ];
 
   function profile(answers) {
@@ -35,12 +40,15 @@ const SkinLab = (() => {
     const moisturizer = dry ? "보습 크림" : light ? "가벼운 젤 로션" : "보습 로션";
     const moisturizerType = dry ? "cream" : light ? "gel" : "lotion";
     const optionalSerum = keys.includes("hydration") && !sensitive;
-    const base = [moisturizer, "아침·저녁 하루 2회. 건조한 부위부터 얇게 발라 보세요."];
+    const base = [moisturizer, light
+      ? "아침·저녁 하루 2회. 얼굴에 얇게 펴 바르고 부위별로 양을 조절해 주세요."
+      : "아침·저녁 하루 2회. 세안 뒤 건조하게 느껴지는 부위부터 발라 보세요."];
     const serum = ["보습 세럼 (선택)", "추가한다면 저녁 하루 1회부터. 로션이나 크림 전에 사용하세요."];
     return {
       keys,
       main,
       sensitive,
+      summary: main.summary,
       am: [["가벼운 세안","아침 1회. 미온수 또는 순한 세안제를 사용하세요."],base,["자외선 차단제","아침 마지막 단계. 야외에서는 제품 사용법에 따라 덧바르세요."]],
       pm: [["순한 세안제","저녁 1회. 선크림이나 메이크업을 부드럽게 씻어내세요."],...(optionalSerum ? [serum] : []),base],
       types: [moisturizerType,"sunscreen",...(optionalSerum ? ["serum"] : [])],
